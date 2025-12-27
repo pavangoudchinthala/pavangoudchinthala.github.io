@@ -1237,3 +1237,130 @@ section.section-show {
   }
 
 }
+
+/* ==================================================
+   MOBILE FIX – RESTORE TEMPLATE LOGIC (FINAL)
+================================================== */
+@media (max-width: 768px) {
+
+  /* Keep JS-controlled one-page behavior */
+  section {
+    position: absolute;
+    width: 100%;
+    top: 120px;
+    height: calc(100vh - 120px);
+    opacity: 0;
+    z-index: 2;
+    overflow-y: auto;
+    display: block;
+  }
+
+  /* ONLY active section visible */
+  section.section-show {
+    opacity: 1;
+    z-index: 3;
+  }
+
+  /* Header height */
+  #header.header-top {
+    height: 70px;
+  }
+
+  #header.header-top ~ section {
+    top: 70px;
+    height: calc(100vh - 70px);
+  }
+
+  /* Fix header text clipping */
+  #header .container {
+    max-width: 100%;
+    padding: 0 14px;
+  }
+
+  #header.header-top h1 {
+    font-size: 22px;
+    white-space: nowrap;
+  }
+
+  /* Portfolio mobile layout */
+  .portfolio-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .portfolio .portfolio-item {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .portfolio .portfolio-wrap {
+    height: 220px;
+  }
+
+}
+
+/* ==================================================
+   MOBILE FINAL OVERRIDE — SECTION WISE ONLY
+   (DO NOT ADD ANY MOBILE CSS AFTER THIS)
+================================================== */
+@media (max-width: 768px) {
+
+  /* LOCK PAGE TO ONE SECTION */
+  body {
+    overflow-x: hidden !important;
+  }
+
+  /* Restore template one-page logic */
+  section {
+    position: absolute !important;
+    width: 100% !important;
+    top: 120px !important;
+    height: calc(100vh - 120px) !important;
+    opacity: 0 !important;
+    z-index: 2 !important;
+    overflow-y: auto !important;
+    display: block !important;
+  }
+
+  /* SHOW ONLY ACTIVE SECTION */
+  section.section-show {
+    opacity: 1 !important;
+    z-index: 3 !important;
+  }
+
+  /* Header height */
+  #header.header-top {
+    height: 70px !important;
+  }
+
+  #header.header-top ~ section {
+    top: 70px !important;
+    height: calc(100vh - 70px) !important;
+  }
+
+  /* Fix name clipping */
+  #header .container {
+    max-width: 100% !important;
+    padding: 0 14px !important;
+  }
+
+  #header.header-top h1 {
+    font-size: 22px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Portfolio: stack properly, no overlap */
+  .portfolio-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+
+  .portfolio .portfolio-item {
+    width: 100% !important;
+    margin-bottom: 24px !important;
+  }
+
+  .portfolio .portfolio-wrap {
+    height: 220px !important;
+  }
+}
