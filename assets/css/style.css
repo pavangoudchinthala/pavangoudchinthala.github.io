@@ -357,12 +357,14 @@ h1, h2, h3, h4, h5, h6 {
 section {
   position: absolute;
   width: 100%;
-  top: 140px;          /* default after hero */
-  height: calc(100vh - 140px);
+  top: 140px;
+  min-height: calc(100vh - 140px); /* ✅ key change */
+  height: auto;                   /* ✅ allow natural height */
   opacity: 0;
   z-index: 2;
-  overflow-y: auto;
+  overflow: visible;              /* ✅ removes fake extra space */
 }
+
 
 /* show active section */
 section.section-show {
@@ -377,18 +379,15 @@ section.section-show {
   height: calc(100vh - 90px);
 }
 
-/* mobile */
 @media (max-width: 768px) {
   section {
     top: 120px;
-    height: calc(100vh - 120px);
-  }
-
-  #header.header-top ~ section {
-    top: 60px;
-    height: calc(100vh - 60px);
+    min-height: calc(100vh - 120px);
+    height: auto;
+    overflow: visible;
   }
 }
+
 
 /* ===============================
    MOBILE FIX – INTERESTS SPACING
