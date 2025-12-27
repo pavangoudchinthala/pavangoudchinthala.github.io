@@ -213,6 +213,37 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
 }
 
+/*--------------------------------------------------------------
+# Sections General Desktop
+--------------------------------------------------------------*/
+/* Desktop */
+.section-title {
+  margin-top: 20px;
+}
+
+section {
+  position: absolute;
+  width: 100%;
+  top: 140px;          /* default after hero Desktop */
+  height: calc(100vh - 140px);
+  opacity: 0;
+  z-index: 2;
+  overflow-y: auto;
+}
+
+/* show active section */
+section.section-show {
+  opacity: 1;
+  z-index: 3;
+  padding-top: 40px;   /* ✅ ADD THIS LINE */
+}
+
+/* when header shrinks */
+#header.header-top ~ section {
+  top: 90px;
+  height: calc(100vh - 90px);
+}
+
 /* ===============================
    Mobile Navigation
 ================================ */
@@ -317,213 +348,82 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-/* ==================================================
-   MOBILE OVERRIDES (REPLACE YOUR OLD MOBILE CSS WITH THIS)
-================================================== */
+
+/* ==========================================================
+   FINAL MOBILE LAYOUT — STABLE & CLEAN
+========================================================== */
 
 @media (max-width: 768px) {
 
-  /* 1. Prevent background scrolling issues */
+  /* Enable normal scrolling */
   body {
+    overflow-y: auto !important;
     overflow-x: hidden !important;
   }
 
-  /* 2. HIDE ALL SECTIONS
-     This stops them from appearing one after another (sequential) */
-  section {
-    display: none !important; 
-    position: relative !important;
-    top: 70px !important; /* Pushes content below the fixed header */
-    height: auto !important;
-    width: 100% !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    padding: 20px 15px 100px 15px !important;
+  html {
+    overflow-x: hidden !important;
   }
 
-  /* 3. ONLY SHOW ACTIVE SECTION
-     This makes it feel like a "One Page App" */
-  section.section-show {
-    display: block !important;
-    animation: mobileFade 0.4s ease-in-out;
-  }
-
-  @keyframes mobileFade {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* 4. HEADER FIXES (Prevents clipping) */
-  #header.header-top {
-    height: 70px !important;
-    display: flex !important;
-    align-items: center !important;
-  }
-
-  #header.header-top h1 {
-    font-size: 22px !important;
-    margin-right: auto !important;
-    padding-left: 10px !important;
-  }
-
-  /* 5. MOBILE NAV BEHAVIOR */
-  .mobile-nav-active {
-    overflow: hidden !important; /* Locks background when menu is open */
-  }
-
-  .mobile-nav-active .mobile-nav-overly {
-    display: block !important;
-  }
-
-  /* 6. FONT & SPACING FIXES */
-  .section-title h2 {
-    line-height: 1.5 !important; /* Fixed the 1px bug */
-    font-size: 14px;
-  }
-
-  .section-title p {
-    font-size: 26px !important;
-    margin: 5px 0 15px 0 !important;
-  }
-
-  .interests .icon-box {
-    padding: 15px !important;
-    margin-bottom: 10px !important;
-  }
-}
-
-/*--------------------------------------------------------------
-# Sections General Desktop
---------------------------------------------------------------*/
-/* Desktop */
-.section-title {
-  margin-top: 20px;
-}
-
-section {
-  position: absolute;
-  width: 100%;
-  top: 140px;          /* default after hero Desktop */
-  height: calc(100vh - 140px);
-  opacity: 0;
-  z-index: 2;
-  overflow-y: auto;
-}
-
-/* show active section */
-section.section-show {
-  opacity: 1;
-  z-index: 3;
-  padding-top: 40px;   /* ✅ ADD THIS LINE */
-}
-
-/* when header shrinks */
-#header.header-top ~ section {
-  top: 90px;
-  height: calc(100vh - 90px);
-}
-
-/* ==================================================
-   FINAL MOBILE LAYOUT FIX (REAL SOLUTION)
-================================================== */
-
-@media (max-width: 768px) {
-
-  /* Allow normal scrolling */
-  body {
-    overflow-y: auto !important;
-  }
-
-  /* Kill one-page absolute layout on mobile */
+  /* Disable one-page absolute layout */
   section {
     position: relative !important;
     top: auto !important;
     height: auto !important;
-    min-height: unset !important;
+    min-height: auto !important;
     opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
     overflow: visible !important;
-    padding-top: 24px;
-    padding-bottom: 24px;
+    padding: 28px 16px !important;
   }
 
   section.section-show {
-    padding-top: 24px;
+    opacity: 1 !important;
   }
 
-}
+  /* Fixed header spacing */
+  #header.header-top {
+    height: 70px !important;
+  }
 
-/* ==================================================
-   FINAL FIX – MOBILE NAV SCROLL ISSUE
-================================================== */
+  section:first-of-type {
+    padding-top: 90px !important;
+  }
 
-@media (max-width: 768px) {
+  /* Header text clipping fix */
+  #header .container {
+    max-width: 100% !important;
+    padding: 0 16px !important;
+  }
 
-  /* Never lock body scroll on mobile */
+  #header h1 {
+    font-size: 26px !important;
+    line-height: 1.25 !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  #header.header-top h1 {
+    font-size: 22px !important;
+  }
+
+  /* Mobile nav must not lock page */
   .mobile-nav-active {
     overflow: auto !important;
   }
 
-  body {
-    overflow-y: auto !important;
+  /* Portfolio visibility */
+  .portfolio-container {
+    flex-direction: column !important;
   }
 
-}
-
-
-/* ===============================
-   MOBILE FIX – INTERESTS SPACING
-================================ */
-
-@media (max-width: 768px) {
-
-  /* Reduce extra vertical gap between interest cards */
-  .interests .icon-box {
-    padding: 16px;              /* ↓ from 22px */
-    margin-bottom: 14px;        /* consistent spacing */
+  .portfolio .portfolio-item {
+    width: 100% !important;
+    margin-bottom: 30px !important;
   }
-
-  /* Reduce icon size slightly */
-  .interests .icon-box i {
-    font-size: 26px;
-  }
-
-  /* Reduce text size slightly for balance */
-  .interests .icon-box h3 {
-    font-size: 15px;
-  }
-
 }
 
-.section-title h2 {
-  font-size: 14px;
-  font-weight: 500;
-  padding: 0;
-  line-height: 1px;
-  margin: 0 0 20px 0;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #dee2e6;
-  font-family: "Poppins", sans-serif;
-}
-
-.section-title h2::after {
-  content: "";
-  width: 120px;
-  height: 1px;
-  display: inline-block;
-  background: #dee2e6;
-  margin: 4px 10px;
-}
-
-.section-title p {
-  margin: 0;
-  margin: -15px 0 15px 0;
-  font-size: 36px;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-  color: #fff;
-}
 
 /*--------------------------------------------------------------
 # About Me (Enhanced)
@@ -1208,20 +1108,4 @@ section.section-show {
   color: #12d640 !important; /* Theme Green on Hover */
 }
 
-/* ==================================================
-   MOBILE FIX – PROJECTS OVERLAP WITH HEADER
-================================================== */
 
-@media (max-width: 768px) {
-
-  /* Give space below fixed header */
-  section {
-    padding-top: 80px !important;   /* 🔑 pushes content below header */
-  }
-
-  /* Header height reference */
-  #header.header-top {
-    height: 60px;
-  }
-
-}
