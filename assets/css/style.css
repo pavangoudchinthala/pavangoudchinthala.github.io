@@ -1124,4 +1124,51 @@ section.section-show {
   color: #12d640 !important; /* Theme Green on Hover */
 }
 
+/* ==================================================
+   MOBILE FIX – PORTFOLIO SECTION
+================================================== */
+
+@media (max-width: 768px) {
+
+  /* Stack projects vertically */
+  .portfolio-container {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Each project full width */
+  .portfolio .portfolio-item {
+    width: 100% !important;
+    margin-bottom: 24px !important;
+  }
+
+  /* Allow natural height on mobile */
+  .portfolio .portfolio-wrap {
+    height: auto !important;
+    min-height: 220px;
+  }
+
+  /* Image adapts to content */
+  .portfolio .portfolio-wrap img {
+    height: auto !important;
+    min-height: 220px;
+  }
+
+  /* Always show project title (no hover on mobile) */
+  .portfolio .portfolio-info {
+    opacity: 1 !important;
+    background: linear-gradient(
+      0deg,
+      rgba(0,0,0,0.7),
+      rgba(0,0,0,0.2)
+    );
+  }
+
+  /* Disable hover-only effects */
+  .portfolio .portfolio-wrap:hover img,
+  .portfolio .portfolio-wrap:hover::before {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
 
