@@ -317,56 +317,80 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-/* ===============================
-   FINAL MOBILE FIX (CLEAN & SAFE)
-================================ */
+/* ==================================================
+   MOBILE OVERRIDES (REPLACE YOUR OLD MOBILE CSS WITH THIS)
+================================================== */
 
 @media (max-width: 768px) {
 
-  /* Enable natural scrolling */
+  /* 1. Prevent background scrolling issues */
   body {
-    overflow-y: auto !important;
+    overflow-x: hidden !important;
   }
 
-  /* Sections fit only their content */
+  /* 2. HIDE ALL SECTIONS
+     This stops them from appearing one after another (sequential) */
   section {
+    display: none !important; 
     position: relative !important;
+    top: 70px !important; /* Pushes content below the fixed header */
     height: auto !important;
-    min-height: unset !important;
-    overflow: visible !important;
-    padding-bottom: 12px; /* minimal scroll */
+    width: 100% !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    padding: 20px 15px 100px 15px !important;
   }
 
-  /* Header height on mobile */
+  /* 3. ONLY SHOW ACTIVE SECTION
+     This makes it feel like a "One Page App" */
+  section.section-show {
+    display: block !important;
+    animation: mobileFade 0.4s ease-in-out;
+  }
+
+  @keyframes mobileFade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* 4. HEADER FIXES (Prevents clipping) */
   #header.header-top {
-    height: 60px;
+    height: 70px !important;
+    display: flex !important;
+    align-items: center !important;
   }
 
-  /* Fix header container width */
-  #header .container {
-    max-width: 100% !important;
-    padding: 0 16px;
-  }
-
-  /* Fix name clipping (C & G issue) */
-  #header h1 {
-    width: 100%;
-    font-size: 32px;
-    line-height: 1.2;
-    text-align: center;
-    padding: 0 10px;
-    white-space: normal;
-    box-sizing: border-box;
-    overflow: visible !important;
-  }
-
-  /* Shrunk header name */
   #header.header-top h1 {
-    font-size: 22px;
-    padding: 0 8px;
+    font-size: 22px !important;
+    margin-right: auto !important;
+    padding-left: 10px !important;
+  }
+
+  /* 5. MOBILE NAV BEHAVIOR */
+  .mobile-nav-active {
+    overflow: hidden !important; /* Locks background when menu is open */
+  }
+
+  .mobile-nav-active .mobile-nav-overly {
+    display: block !important;
+  }
+
+  /* 6. FONT & SPACING FIXES */
+  .section-title h2 {
+    line-height: 1.5 !important; /* Fixed the 1px bug */
+    font-size: 14px;
+  }
+
+  .section-title p {
+    font-size: 26px !important;
+    margin: 5px 0 15px 0 !important;
+  }
+
+  .interests .icon-box {
+    padding: 15px !important;
+    margin-bottom: 10px !important;
   }
 }
-
 
 /*--------------------------------------------------------------
 # Sections General Desktop
