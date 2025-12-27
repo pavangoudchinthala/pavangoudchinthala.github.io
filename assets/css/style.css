@@ -378,6 +378,38 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
+/* ===============================
+   FINAL MOBILE SCROLL BALANCE FIX
+================================ */
+
+@media (max-width: 768px) {
+
+  /* Allow normal page scrolling */
+  body {
+    overflow-y: auto !important;
+  }
+
+  /* Let sections size only to content */
+  section {
+    position: relative !important;
+    height: auto !important;
+    min-height: unset !important;
+    overflow: visible !important;
+    padding-bottom: 24px;   /* ✅ small, natural space */
+  }
+
+  /* Remove excessive padding added earlier */
+  section.section-show {
+    padding-bottom: 24px !important;
+  }
+
+  /* Header spacing fix */
+  #header {
+    padding-bottom: 10px;
+  }
+
+}
+
 
 /*--------------------------------------------------------------
 # Sections General
