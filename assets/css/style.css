@@ -296,18 +296,6 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
-/* ===============================
-   MOBILE FIX FOR MISSING CONTENT
-================================ */
-
-@media (max-width: 768px) {
-  section {
-    position: relative;
-    height: auto !important;
-    min-height: unset !important;   /* 🔥 KEY FIX */
-    overflow: visible !important;
-  }
-}
 
 /* Header Top */
 #header.header-top {
@@ -375,19 +363,6 @@ section.section-show {
 #header.header-top ~ section {
   top: 90px;
   height: calc(100vh - 90px);
-}
-
-/* mobile */
-@media (max-width: 768px) {
-  section {
-    top: 120px;
-    height: calc(100vh - 120px);
-  }
-
-  #header.header-top ~ section {
-    top: 60px;
-    height: calc(100vh - 60px);
-  }
 }
 
 /* ===============================
@@ -1128,8 +1103,9 @@ section.section-show {
   color: #12d640 !important; /* Theme Green on Hover */
 }
 
+
 /* =====================================
-   FINAL MOBILE SCROLL GAP FIX
+   MOBILE – SINGLE SOURCE OF TRUTH
 ===================================== */
 @media (max-width: 768px) {
 
@@ -1140,30 +1116,6 @@ section.section-show {
 
   body::before {
     height: 100%;
-  }
-
-  #header {
-    height: auto;
-    min-height: 100vh;
-  }
-
-  section {
-    height: auto !important;
-    min-height: auto !important;
-    overflow: visible !important;
-  }
-}
-
-/* ... ALL YOUR EXISTING CSS ... */
-
-/* =====================================
-   MOBILE – FULL RESET (FINAL FIX)
-===================================== */
-@media (max-width: 768px) {
-
-  html, body {
-    height: auto;
-    overflow-y: auto;
   }
 
   #header {
@@ -1178,7 +1130,7 @@ section.section-show {
     top: 0 !important;
     height: auto !important;
     min-height: auto !important;
-    opacity: 1 !important;
+    opacity: 1 !important;        /* 🔥 fixes missing content */
     overflow: visible !important;
     padding: 40px 0;
   }
@@ -1186,9 +1138,5 @@ section.section-show {
   #header.header-top ~ section {
     top: 0 !important;
     height: auto !important;
-  }
-
-  body::before {
-    height: 100%;
   }
 }
