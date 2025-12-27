@@ -1126,3 +1126,27 @@ section.section-show {
 .contact .info-box .social-links a:hover i {
   color: #12d640 !important; /* Theme Green on Hover */
 }
+
+/* =====================================
+   MOBILE FINAL FIX – REMOVE EXTRA SPACE
+===================================== */
+@media (max-width: 768px) {
+
+  section {
+    height: auto !important;
+    min-height: unset !important;
+    overflow: visible !important;
+  }
+
+  #header.header-top ~ section {
+    height: auto !important;
+    min-height: unset !important;
+    overflow: visible !important;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    position: relative !important;
+  }
+}
