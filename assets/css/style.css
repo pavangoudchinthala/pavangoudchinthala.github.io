@@ -1105,38 +1105,21 @@ section.section-show {
 
 
 /* =====================================
-   MOBILE – SINGLE SOURCE OF TRUTH
+   MOBILE – SECTION NAV FIX (FINAL)
 ===================================== */
 @media (max-width: 768px) {
 
-  html, body {
-    height: auto;
-    overflow-y: auto;
+  body {
+    overflow: hidden;   /* ❌ no page scroll */
   }
 
-  body::before {
-    height: 100%;
-  }
-
-  #header {
-    position: relative;
-    height: auto;
-    min-height: auto;
-    overflow: visible;
+  #header.header-top {
+    height: 60px;
   }
 
   section {
-    position: relative !important;
-    top: 0 !important;
-    height: auto !important;
-    min-height: auto !important;
-    opacity: 1 !important;        /* 🔥 fixes missing content */
-    overflow: visible !important;
-    padding: 40px 0;
-  }
-
-  #header.header-top ~ section {
-    top: 0 !important;
-    height: auto !important;
+    top: 60px;                          /* below mobile header */
+    height: calc(100vh - 60px);         /* full screen section */
+    overflow-y: auto;                   /* section scroll only */
   }
 }
