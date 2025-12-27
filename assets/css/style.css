@@ -213,7 +213,10 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
 }
 
-/* Mobile Navigation */
+/* ===============================
+   Mobile Navigation
+================================ */
+
 .mobile-nav-toggle {
   position: fixed;
   right: 15px;
@@ -242,7 +245,6 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 9999;
   overflow-y: auto;
   background: rgba(0, 0, 0, 0.7);
-  transition: ease-in-out 0s;
   opacity: 0;
   visibility: hidden;
   border-radius: 10px;
@@ -258,29 +260,22 @@ h1, h2, h3, h4, h5, h6 {
 
 .mobile-nav a {
   display: block;
-  position: relative;
   color: #fff;
   padding: 10px 20px;
   font-weight: 500;
-  outline: none;
 }
 
-.mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
+.mobile-nav a:hover,
+.mobile-nav .active > a {
   color: #1c7d32;
-  text-decoration: none;
 }
 
 .mobile-nav-overly {
-  width: 100%;
-  height: 100%;
-  z-index: 9997;
-  top: 0;
-  left: 0;
   position: fixed;
+  inset: 0;
+  z-index: 9997;
   background: rgba(9, 9, 9, 0.6);
-  overflow: hidden;
   display: none;
-  transition: ease-in-out 0s;
 }
 
 .mobile-nav-active {
@@ -292,34 +287,19 @@ h1, h2, h3, h4, h5, h6 {
   visibility: visible;
 }
 
-.mobile-nav-active .mobile-nav-toggle i {
-  color: #fff;
-}
-
 /* ===============================
-   MOBILE FIX FOR MISSING CONTENT
+   Header Top
 ================================ */
 
-@media (max-width: 768px) {
-  section {
-    position: relative;
-    height: auto !important;
-    min-height: unset !important;   /* 🔥 KEY FIX */
-    overflow: visible !important;
-  }
-}
-
-/* Header Top */
 #header.header-top {
   height: 90px;
   position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
+  inset: 0;
   background: #09203a;
 }
 
-#header.header-top .social-links, #header.header-top h2 {
+#header.header-top .social-links,
+#header.header-top h2 {
   display: none;
 }
 
@@ -337,77 +317,54 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-@media (max-width: 768px) {
-  #header.header-top {
-    height: 60px;
-  }
-  #header.header-top h1 {
-    font-size: 26px;
-  }
-}
-
 /* ===============================
-   FINAL FIX – HEADER NAME CLIPPING
+   FINAL MOBILE FIX (CLEAN & SAFE)
 ================================ */
 
 @media (max-width: 768px) {
 
-  /* Allow header to use full screen width */
-  #header .container {
-    max-width: 100% !important;
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  /* Prevent text clipping */
-  #header h1 {
-    width: 100%;
-    overflow: visible !important;
-    white-space: normal;      /* allow wrapping if needed */
-    text-align: center;
-    box-sizing: border-box;
-    font-size: 32px;          /* safe mobile size */
-    line-height: 1.2;
-  }
-
-  /* When header shrinks (menu open) */
-  #header.header-top h1 {
-    font-size: 22px;
-    padding: 0 12px;
-  }
-
-}
-
-/* ===============================
-   FINAL MOBILE SCROLL BALANCE FIX
-================================ */
-
-@media (max-width: 768px) {
-
-  /* Allow normal page scrolling */
+  /* Enable natural scrolling */
   body {
     overflow-y: auto !important;
   }
 
-  /* Let sections size only to content */
+  /* Sections fit only their content */
   section {
     position: relative !important;
     height: auto !important;
     min-height: unset !important;
     overflow: visible !important;
-    padding-bottom: 24px;   /* ✅ small, natural space */
+    padding-bottom: 12px; /* minimal scroll */
   }
 
-  /* Remove excessive padding added earlier */
-  section.section-show {
-    padding-bottom: 24px !important;
+  /* Header height on mobile */
+  #header.header-top {
+    height: 60px;
   }
 
-  /* Header spacing fix */
-  #header {
-    padding-bottom: 10px;
+  /* Fix header container width */
+  #header .container {
+    max-width: 100% !important;
+    padding: 0 16px;
   }
 
+  /* Fix name clipping (C & G issue) */
+  #header h1 {
+    width: 100%;
+    font-size: 32px;
+    line-height: 1.2;
+    text-align: center;
+    padding: 0 10px;
+    white-space: normal;
+    box-sizing: border-box;
+    overflow: visible !important;
+  }
+
+  /* Shrunk header name */
+  #header.header-top h1 {
+    font-size: 22px;
+    padding: 0 8px;
+  }
 }
 
 
