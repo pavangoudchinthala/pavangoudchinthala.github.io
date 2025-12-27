@@ -301,16 +301,13 @@ h1, h2, h3, h4, h5, h6 {
 ================================ */
 
 @media (max-width: 768px) {
-
   section {
-    position: relative;     /* ⬅️ KEY FIX */
-    height: auto;           /* ⬅️ allow full height */
-    min-height: 100vh;
-    overflow-y: visible;    /* ⬅️ allow natural scroll */
+    position: relative;
+    height: auto !important;
+    min-height: unset !important;   /* 🔥 KEY FIX */
+    overflow: visible !important;
   }
-
 }
-
 
 /* Header Top */
 #header.header-top {
