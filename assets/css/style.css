@@ -786,14 +786,6 @@ section.section-show {
 
 @media (max-width: 768px) {
 
-  /* Allow skills section to grow fully */
-  #skills {
-    height: auto !important;
-    min-height: 100vh;
-    overflow: visible !important;
-    padding-bottom: 60px; /* ⬅️ space for last row */
-  }
-
   /* Ensure skills cards don't clip content */
   .skills .skills-card {
     height: auto !important;
@@ -1110,7 +1102,7 @@ section.section-show {
 @media (max-width: 768px) {
 
   body {
-    overflow: hidden;   /* ❌ no page scroll */
+    overflow: hidden;   /* no page scroll */
   }
 
   #header.header-top {
@@ -1118,8 +1110,50 @@ section.section-show {
   }
 
   section {
-    top: 60px;                          /* below mobile header */
-    height: calc(100vh - 60px);         /* full screen section */
-    overflow-y: auto;                   /* section scroll only */
+    top: 60px;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+  }
+
+  /* ✅ NAME FIX (ONE LINE + CENTER) */
+  #header h1 {
+    white-space: nowrap;
+    font-size: clamp(18px, 5vw, 24px);
+    text-align: center;
+    margin: 0 auto;
+  }
+  @media (max-width: 768px) {
+
+  /* 🔽 Tighten name spacing */
+  #header h1 {
+    margin-bottom: 2px;     /* almost no gap */
+    line-height: 1.05;
+  }
+
+  /* 🔽 Tighten subtitle if present */
+  #header h2 {
+    margin-bottom: 4px;
+  }
+
+  /* 🔽 Pull section closer to header */
+  section.section-show {
+    padding-top: 10px;     /* VERY tight */
+  }
+
+  /* 🔽 Reduce section title spacing */
+  .section-title {
+    margin-top: 4px;
+  }
+
+  .section-title h2 {
+    margin-bottom: 8px;
+  }
+
+  .section-title p {
+    margin-top: -10px;
   }
 }
+
+
+}
+
