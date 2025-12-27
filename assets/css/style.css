@@ -369,9 +369,9 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /*--------------------------------------------------------------
-# Sections General
+# Sections General Desktop
 --------------------------------------------------------------*/
-
+/* Desktop */
 .section-title {
   margin-top: 20px;
 }
@@ -379,7 +379,7 @@ h1, h2, h3, h4, h5, h6 {
 section {
   position: absolute;
   width: 100%;
-  top: 140px;          /* default after hero */
+  top: 140px;          /* default after hero Desktop */
   height: calc(100vh - 140px);
   opacity: 0;
   z-index: 2;
@@ -399,17 +399,33 @@ section.section-show {
   height: calc(100vh - 90px);
 }
 
-/* mobile */
+/* ==================================================
+   FINAL MOBILE LAYOUT FIX (REAL SOLUTION)
+================================================== */
+
 @media (max-width: 768px) {
-  section {
-    top: 120px;
-    height: calc(100vh - 120px);
+
+  /* Allow normal scrolling */
+  body {
+    overflow-y: auto !important;
   }
 
-  #header.header-top ~ section {
-    top: 60px;
-    height: calc(100vh - 60px);
+  /* Kill one-page absolute layout on mobile */
+  section {
+    position: relative !important;
+    top: auto !important;
+    height: auto !important;
+    min-height: unset !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+    padding-top: 24px;
+    padding-bottom: 24px;
   }
+
+  section.section-show {
+    padding-top: 24px;
+  }
+
 }
 
 /* ==================================================
