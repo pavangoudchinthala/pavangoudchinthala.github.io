@@ -1364,3 +1364,29 @@ section.section-show {
     height: 220px !important;
   }
 }
+
+/* ==================================================
+   MOBILE FINAL FIX — CONTENT VISIBILITY
+================================================== */
+@media (max-width: 768px) {
+
+  /* Ensure section content is visible */
+  section.section-show * {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Prevent inner containers from being hidden */
+  section * {
+    visibility: visible !important;
+  }
+
+  /* Fix Bootstrap rows sometimes collapsing */
+  section .container,
+  section .row {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+
+}
