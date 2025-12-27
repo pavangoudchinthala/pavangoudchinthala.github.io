@@ -412,6 +412,24 @@ section.section-show {
   }
 }
 
+/* ==================================================
+   FINAL FIX – MOBILE NAV SCROLL ISSUE
+================================================== */
+
+@media (max-width: 768px) {
+
+  /* Never lock body scroll on mobile */
+  .mobile-nav-active {
+    overflow: auto !important;
+  }
+
+  body {
+    overflow-y: auto !important;
+  }
+
+}
+
+
 /* ===============================
    MOBILE FIX – INTERESTS SPACING
 ================================ */
