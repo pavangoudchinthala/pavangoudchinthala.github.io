@@ -346,6 +346,20 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Force name into single line on mobile */
+#header h1 a {
+  white-space: nowrap;
+}
+
+/* Mobile font size adjustment */
+@media (max-width: 768px) {
+  #header h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+}
+
+
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
