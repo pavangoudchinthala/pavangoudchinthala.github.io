@@ -393,6 +393,29 @@ section.section-show {
   }
 }
 
+/* ===============================
+   MOBILE FIX – INTERESTS SPACING
+================================ */
+
+@media (max-width: 768px) {
+
+  /* Reduce extra vertical gap between interest cards */
+  .interests .icon-box {
+    padding: 16px;              /* ↓ from 22px */
+    margin-bottom: 14px;        /* consistent spacing */
+  }
+
+  /* Reduce icon size slightly */
+  .interests .icon-box i {
+    font-size: 26px;
+  }
+
+  /* Reduce text size slightly for balance */
+  .interests .icon-box h3 {
+    font-size: 15px;
+  }
+
+}
 
 .section-title h2 {
   font-size: 14px;
@@ -783,6 +806,39 @@ section.section-show {
 .skills-icons img:hover {
   transform: scale(1.1);
   filter: drop-shadow(0 0 12px rgba(18, 214, 64, 0.4));
+}
+
+/* ===============================
+   MOBILE FIX – SKILLS SECTION
+================================ */
+
+@media (max-width: 768px) {
+
+  /* Allow skills section to grow fully */
+  #skills {
+    height: auto !important;
+    min-height: 100vh;
+    overflow: visible !important;
+    padding-bottom: 60px; /* ⬅️ space for last row */
+  }
+
+  /* Ensure skills cards don't clip content */
+  .skills .skills-card {
+    height: auto !important;
+  }
+
+  /* Improve icon wrapping */
+  .skills-icons {
+    flex-wrap: wrap;
+    gap: 22px;
+    padding-bottom: 20px;
+  }
+
+  /* Prevent icons from being cut */
+  .skills-icons img {
+    max-width: 80px;
+    height: auto;
+  }
 }
 
 
