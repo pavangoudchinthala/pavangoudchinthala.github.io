@@ -1207,3 +1207,21 @@ section.section-show {
 .contact .info-box .social-links a:hover i {
   color: #12d640 !important; /* Theme Green on Hover */
 }
+
+/* ==================================================
+   MOBILE FIX – PROJECTS OVERLAP WITH HEADER
+================================================== */
+
+@media (max-width: 768px) {
+
+  /* Give space below fixed header */
+  section {
+    padding-top: 80px !important;   /* 🔑 pushes content below header */
+  }
+
+  /* Header height reference */
+  #header.header-top {
+    height: 60px;
+  }
+
+}
