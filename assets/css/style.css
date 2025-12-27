@@ -346,17 +346,36 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Force name into single line on mobile */
-#header h1 a {
-  white-space: nowrap;
-}
+/* ===============================
+   FINAL FIX – HEADER NAME CLIPPING
+================================ */
 
-/* Mobile font size adjustment */
 @media (max-width: 768px) {
-  #header h1 {
-    font-size: 32px;
-    text-align: center;
+
+  /* Allow header to use full screen width */
+  #header .container {
+    max-width: 100% !important;
+    padding-left: 16px;
+    padding-right: 16px;
   }
+
+  /* Prevent text clipping */
+  #header h1 {
+    width: 100%;
+    overflow: visible !important;
+    white-space: normal;      /* allow wrapping if needed */
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 32px;          /* safe mobile size */
+    line-height: 1.2;
+  }
+
+  /* When header shrinks (menu open) */
+  #header.header-top h1 {
+    font-size: 22px;
+    padding: 0 12px;
+  }
+
 }
 
 
