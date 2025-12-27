@@ -348,6 +348,22 @@ section.section-show {
   margin: 0;
 }
 
+/* ==================================================
+   MOBILE: ONE SECTION AT A TIME (OPTIONAL)
+================================================== */
+
+@media (max-width: 768px) {
+
+  section {
+    display: none !important;
+  }
+
+  section.section-show {
+    display: block !important;
+  }
+
+}
+
 
 /* ==========================================================
    FINAL MOBILE LAYOUT — STABLE & CLEAN
