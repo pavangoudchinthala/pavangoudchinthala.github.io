@@ -1,0 +1,1066 @@
+/**
+* Template Name: Personal - v2.1.0
+* Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #fff;
+  position: relative;
+  background: transparent;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  background: radial-gradient(circle at top, #0b2b4d 0%, #010e1b 60%);
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: -1;
+}
+
+
+@media (min-width: 1024px) {
+  body::before {
+    background-attachment: fixed;
+  }
+}
+
+a {
+  color: #12d640;
+}
+
+a:hover {
+  color: #12d640;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  transition: ease-in-out 0s;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  z-index: 997;
+  overflow-y: auto;
+}
+
+#header * {
+  transition: ease-in-out 0s;
+}
+
+#header h1 {
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  line-height: 1.1;
+  margin-bottom: 12px;
+
+  background: linear-gradient(90deg, #ffffff 40%, #12d640 85%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  text-shadow: 0 6px 20px rgba(18, 214, 64, 0.25);
+}
+
+
+
+
+#header h1 a, #header h1 a:hover {
+  color: #dee2e6;
+  line-height: 1;
+  display: inline-block;
+}
+
+#header h2 {
+  font-size: 26px;
+  font-weight: 500;
+  color: #cfd8dc;
+}
+
+#header h2 span {
+  color: #12d640;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(18, 214, 64, 0.6);
+  padding-bottom: 4px;
+}
+
+
+#header img {
+  padding: 0;
+  margin: 0;
+}
+
+/*--------------------------------------------------------------
+# Header Social Links
+--------------------------------------------------------------*/
+#header .social-links {
+  margin-top: 30px;
+  display: flex;
+  gap: 14px;
+}
+
+#header .social-links a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+/* Original Brand Colors */
+#header .social-links a.linkedin i { color: #0077b5; }
+#header .social-links a.github i   { color: #ffffff; }
+#header .social-links a.google i   { color: #db4437; }
+#header .social-links a.youtube i  { color: #ff0000; }
+#header .social-links a.instagram i { color: #e4405f; }
+
+/* Hover State: All icons turn green and background changes */
+#header .social-links a:hover {
+  background: #12d640;
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(18, 214, 64, 0.45);
+}
+
+#header .social-links a:hover i {
+  color: #000 !important; /* Icon turns black on the green background */
+}
+
+
+
+@media (max-width: 992px) {
+  #header h1 {
+    font-size: 36px;
+  }
+  #header h2 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  #header .social-links {
+    margin-top: 15px;
+  }
+  #header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+#header .container {
+  max-width: 900px;
+}
+
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Desktop Navigation */
+.nav-menu {
+  margin-top: 35px;
+}
+
+.nav-menu ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-menu li + li {
+  margin-left: 30px;
+}
+
+.nav-menu a {
+  color: #e0e0e0;
+  font-size: 18px;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+
+.nav-menu a:before {
+  background-color: #12d640;
+  height: 3px;
+}
+
+
+.nav-menu a:hover:before, .nav-menu li:hover > a:before, .nav-menu .active > a:before {
+  visibility: visible;
+  width: 25px;
+}
+
+.nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+  color: #12d640;
+  text-decoration: none;
+}
+
+/* Mobile Navigation */
+.mobile-nav-toggle {
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  z-index: 9998;
+  border: 0;
+  background: none;
+  font-size: 24px;
+  transition: all 0.4s;
+  outline: none !important;
+  line-height: 1;
+  cursor: pointer;
+  text-align: right;
+}
+
+.mobile-nav-toggle i {
+  color: #fff;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 55px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+  z-index: 9999;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.7);
+  transition: ease-in-out 0s;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 10px;
+  padding: 10px 0;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+}
+
+.mobile-nav * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mobile-nav a {
+  display: block;
+  position: relative;
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: 500;
+  outline: none;
+}
+
+.mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
+  color: #1c7d32;
+  text-decoration: none;
+}
+
+.mobile-nav-overly {
+  width: 100%;
+  height: 100%;
+  z-index: 9997;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(9, 9, 9, 0.6);
+  overflow: hidden;
+  display: none;
+  transition: ease-in-out 0s;
+}
+
+.mobile-nav-active {
+  overflow: hidden;
+}
+
+.mobile-nav-active .mobile-nav {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav-active .mobile-nav-toggle i {
+  color: #fff;
+}
+
+/* Header Top */
+#header.header-top {
+  height: 90px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  background: #09203a;
+}
+
+#header.header-top .social-links, #header.header-top h2 {
+  display: none;
+}
+
+#header.header-top h1 {
+  margin-right: auto;
+  font-size: 36px;
+}
+
+#header.header-top .container {
+  display: flex;
+  align-items: center;
+}
+
+#header.header-top .nav-menu {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  #header.header-top {
+    height: 60px;
+  }
+  #header.header-top h1 {
+    font-size: 26px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+
+.section-title {
+  margin-top: 20px;
+}
+
+section {
+  position: absolute;
+  width: 100%;
+  top: 140px;          /* default after hero */
+  height: calc(100vh - 140px);
+  opacity: 0;
+  z-index: 2;
+  overflow-y: auto;
+}
+
+/* show active section */
+section.section-show {
+  opacity: 1;
+  z-index: 3;
+  padding-top: 40px;   /* ✅ ADD THIS LINE */
+}
+
+/* when header shrinks */
+#header.header-top ~ section {
+  top: 90px;
+  height: calc(100vh - 90px);
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  section {
+    top: 120px;
+    height: calc(100vh - 120px);
+  }
+
+  #header.header-top ~ section {
+    top: 60px;
+    height: calc(100vh - 60px);
+  }
+}
+
+/* lock body scroll */
+body {
+  overflow: hidden;
+}
+
+
+
+.section-title h2 {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  line-height: 1px;
+  margin: 0 0 20px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #dee2e6;
+  font-family: "Poppins", sans-serif;
+}
+
+.section-title h2::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  background: #dee2e6;
+  margin: 4px 10px;
+}
+
+.section-title p {
+  margin: 0;
+  margin: -15px 0 15px 0;
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+
+/*--------------------------------------------------------------
+# About Me (Enhanced)
+--------------------------------------------------------------*/
+
+.about-me .content {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 25px 30px;
+  border-radius: 14px;
+}
+
+.about-me .content h3 {
+  font-weight: 700;
+  font-size: 28px;
+  color: #12d640;
+  margin-bottom: 15px;
+}
+
+.about-me .content p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.about-me .content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-me .content ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  color: #fff;
+}
+
+.about-me .content ul li i {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #12d640;
+}
+
+.about-me .content ul li strong {
+  margin-right: 5px;
+  color: #fff;
+}
+
+.about-me img {
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+  transition: 0.4s ease;
+}
+
+.about-me img:hover {
+  transform: scale(1.03);
+}
+
+/*--------------------------------------------------------------
+# Interests (Enhanced Cards)
+--------------------------------------------------------------*/
+
+.interests .icon-box {
+  display: flex;
+  align-items: center;
+  padding: 22px;
+  background: linear-gradient(145deg, #09203a, #071a2d);
+  border-radius: 14px;
+  transition: 0.35s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+.interests .icon-box i {
+  font-size: 32px;
+  margin-right: 14px;
+  color: #12d640;
+}
+
+.interests .icon-box h3 {
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  margin: 0;
+}
+
+.interests .icon-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(18, 214, 64, 0.25);
+  background: linear-gradient(145deg, #0b2b4d, #08203a);
+}
+
+/*--------------------------------------------------------------
+# Education Section
+--------------------------------------------------------------*/
+
+.education {
+  padding: 40px 0;
+}
+
+/* Card */
+.education-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 28px 26px;
+  height: 100%;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+
+  transition: all 0.35s ease;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* Hover effect */
+.education-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 45px rgba(18, 214, 64, 0.35);
+  border-color: #12d640;
+}
+
+/* Zoom education logos more */
+.education-card img {
+  width: 100%;
+  max-width: 260px;   /* ⬅ increased from 220 */
+  height: 110px;      /* ⬅ increased height */
+  object-fit: contain;
+
+  margin: 0 auto 18px;
+  display: block;
+
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+
+/* Degree title */
+.education-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #12d640;
+  margin-bottom: 6px;
+}
+
+/* Duration */
+.education-card h5 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #cfd8dc;
+  margin-bottom: 18px;
+}
+
+/* Coursework list */
+.education-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+}
+
+.education-card ul li {
+  font-size: 14px;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+/* Location */
+.education-card .location a {
+  color: #12d640;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.education-card .location a:hover {
+  text-decoration: underline;
+}
+
+
+/* ===============================
+   projects/PORTFOLIO FINAL CLEAN VERSION
+================================ */
+
+.portfolio-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Card wrapper */
+.portfolio .portfolio-item {
+  margin-bottom: 40px;
+  display: flex;
+}
+
+/* Portfolio card */
+.portfolio .portfolio-wrap {
+  width: 100%;
+  height: 260px; /* consistent size */
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #000;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+  transition: 0.4s ease;
+  cursor: pointer;
+}
+
+.portfolio .portfolio-wrap:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 45px rgba(40,167,69,0.35);
+}
+
+/* Image */
+.portfolio .portfolio-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s ease;
+}
+
+.portfolio .portfolio-wrap:hover img {
+  transform: scale(1.08);
+}
+
+/* Overlay */
+.portfolio .portfolio-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(0,0,0,0.85),
+    rgba(0,0,0,0.35)
+  );
+  opacity: 0;
+  transition: 0.4s ease;
+  z-index: 1;
+}
+
+.portfolio .portfolio-wrap:hover::before {
+  opacity: 1;
+}
+
+/* Info */
+.portfolio .portfolio-info {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.portfolio .portfolio-wrap:hover .portfolio-info {
+  opacity: 1;
+}
+
+.portfolio .portfolio-info h4 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* Icon */
+.portfolio .portfolio-links a {
+  font-size: 34px;
+  color: #28a745;
+  transition: 0.3s ease;
+}
+
+.portfolio .portfolio-links a:hover {
+  color: #63eda3;
+  transform: scale(1.2);
+}
+
+/* Filters */
+#portfolio-flters {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+#portfolio-flters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(255,255,255,0.12);
+  margin: 0 6px;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+
+#portfolio-flters li.filter-active,
+#portfolio-flters li:hover {
+  background: #28a745;
+}
+
+
+/*--------------------------------------------------------------
+# Skills
+--------------------------------------------------------------*/
+
+.skills .skills-card {
+  /* Change from white to a semi-transparent dark blue/grey */
+  background: rgba(255, 255, 255, 0.08); 
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 28px 24px;
+  transition: 0.35s ease;
+  height: 100%;
+}
+
+.skills .skills-card h4 {
+  /* Change text color from dark to white/green to be readable */
+  color: #12d640; 
+  font-weight: 700;
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+.skills .skills-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(40, 167, 69, 0.25);
+  border-color: #28a745;
+}
+
+/* icons grid */
+.skills-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 26px;
+}
+
+/* Make Skills icons shine */
+.skills-icons img {
+  height: 50px;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.1));
+  transition: all 0.3s ease;
+}
+
+/* Interaction: Grow and Glow Green on hover */
+.skills-icons img:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 12px rgba(18, 214, 64, 0.4));
+}
+
+
+/*--------------------------------------------------------------
+# Resume
+--------------------------------------------------------------*/
+.resume .resume-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.resume .resume-item {
+  padding: 0 0 20px 20px;
+  margin-top: -2px;
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+.resume .resume-item h4 {
+  line-height: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: #1c7d32;
+  margin-bottom: 10px;
+}
+
+.resume .resume-item h5 {
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 5px 15px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.resume .resume-item ul {
+  padding-left: 20px;
+}
+
+.resume .resume-item ul li {
+  padding-bottom: 10px;
+}
+
+.resume .resume-item:last-child {
+  padding-bottom: 0;
+}
+
+.resume .resume-item::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  left: -9px;
+  top: 0;
+  background: #9e7f25;
+  border: 2px solid #9e7f25;
+}
+
+/* ===============================
+   Download Resume Button
+================================ */
+
+.download-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 34px;
+  margin-top: 18px;
+
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  color: #0b2b4d;
+  background: linear-gradient(135deg, #12d640, #6cff8d);
+
+  border-radius: 30px;
+  text-decoration: none;
+
+  box-shadow: 0 10px 25px rgba(18, 214, 64, 0.35);
+  transition: all 0.35s ease;
+}
+
+/* Hover */
+.download-resume:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(18, 214, 64, 0.55);
+  color: #000;
+}
+
+/* Active (click effect) */
+.download-resume:active {
+  transform: scale(0.96);
+}
+
+/* ===============================
+   Resume Frame (Glass Card)
+================================ */
+
+.resume-frame {
+  max-width: 360px;
+  margin: 0 auto 30px auto;
+  padding: 26px 22px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* Heading inside frame */
+.resume-heading {
+  color: #12d640;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Preview button */
+.resume-preview-btn {
+  padding: 8px 22px;
+  font-size: 14px;
+  border-radius: 20px;
+}
+
+/* ===============================
+   Resume Download Frame
+================================ */
+
+.resume-download-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 18px 0 26px 0;
+}
+
+/* Frame */
+.resume-download-wrapper {
+  padding: 22px 26px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Download Button */
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 34px;
+
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+
+  color: #0b2b4d;
+  background: linear-gradient(135deg, #12d640, #6cff8d);
+
+  border-radius: 30px;
+  text-decoration: none;
+
+  box-shadow: 0 10px 25px rgba(18, 214, 64, 0.35);
+  transition: all 0.35s ease;
+}
+
+/* Hover */
+.download-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(18, 214, 64, 0.55);
+  color: #000;
+}
+
+/* Click */
+.download-btn:active {
+  transform: scale(0.96);
+}
+
+/* ===============================
+   Contact
+================================ */
+
+/* Update Info Boxes (Address, Socials, etc) */
+.contact .info-box {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  color: #fff; /* Change text to white */
+  padding: 24px;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.contact .info-box p, 
+
+/* --- Text Links Color Reset --- */
+.contact .info-box a {
+  color: #dee2e6 !important; /* Normal state: Light grey to match dark theme */
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+/* --- Green Hover Effect for Address, Email, and Phone --- */
+.contact .info-box a:hover {
+  color: #12d640 !important; /* Theme green on hover/drag */
+  text-decoration: underline; /* Adds visual confirmation for links */
+}
+
+/* Ensure the contact headings (H3) remain consistent */
+.contact .info-box h3 {
+  color: #12d640; /* Titles stay green */
+  font-weight: 700;
+}
+
+/* Update the Email Form if you are using one */
+.contact .php-email-form {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.contact .php-email-form input, 
+.contact .php-email-form textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+/* ---------- SOCIAL LINKS ---------- */
+.contact .info-box .social-links {
+  margin: 5px 0 0 68px;
+  display: flex;
+  gap: 12px;
+}
+
+/* Base style for the circular button */
+.contact .info-box .social-links a {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  /* Using your semi-transparent dark style */
+  background: rgba(255, 255, 255, 0.1) !important; 
+  transition: 0.3s ease;
+  text-decoration: none !important;
+}
+
+/* Original Brand Colors for Icons */
+.contact .info-box .social-links a.linkedin i  { color: #0077b5 !important; }
+.contact .info-box .social-links a.google i    { color: #EA4335 !important; } /* Google Red 500 */
+.contact .info-box .social-links a.youtube i   { color: #ff0000 !important; }
+.contact .info-box .social-links a.instagram i { color: #e4405f !important; }
+
+/* HOVER STATE: All icons turn green and background shifts */
+.contact .info-box .social-links a:hover {
+  background: rgba(18, 214, 64, 0.2) !important; 
+  transform: translateY(-3px);
+}
+
+.contact .info-box .social-links a:hover i {
+  color: #12d640 !important; /* Theme Green on Hover */
+}
