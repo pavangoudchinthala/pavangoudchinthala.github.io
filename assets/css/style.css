@@ -213,41 +213,7 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
 }
 
-/*--------------------------------------------------------------
-# Sections General Desktop
---------------------------------------------------------------*/
-/* Desktop */
-.section-title {
-  margin-top: 20px;
-}
-
-section {
-  position: absolute;
-  width: 100%;
-  top: 140px;          /* default after hero Desktop */
-  height: calc(100vh - 140px);
-  opacity: 0;
-  z-index: 2;
-  overflow-y: auto;
-}
-
-/* show active section */
-section.section-show {
-  opacity: 1;
-  z-index: 3;
-  padding-top: 40px;   /* ✅ ADD THIS LINE */
-}
-
-/* when header shrinks */
-#header.header-top ~ section {
-  top: 90px;
-  height: calc(100vh - 90px);
-}
-
-/* ===============================
-   Mobile Navigation
-================================ */
-
+/* Mobile Navigation */
 .mobile-nav-toggle {
   position: fixed;
   right: 15px;
@@ -276,6 +242,7 @@ section.section-show {
   z-index: 9999;
   overflow-y: auto;
   background: rgba(0, 0, 0, 0.7);
+  transition: ease-in-out 0s;
   opacity: 0;
   visibility: hidden;
   border-radius: 10px;
@@ -291,22 +258,29 @@ section.section-show {
 
 .mobile-nav a {
   display: block;
+  position: relative;
   color: #fff;
   padding: 10px 20px;
   font-weight: 500;
+  outline: none;
 }
 
-.mobile-nav a:hover,
-.mobile-nav .active > a {
+.mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
   color: #1c7d32;
+  text-decoration: none;
 }
 
 .mobile-nav-overly {
-  position: fixed;
-  inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: 9997;
+  top: 0;
+  left: 0;
+  position: fixed;
   background: rgba(9, 9, 9, 0.6);
+  overflow: hidden;
   display: none;
+  transition: ease-in-out 0s;
 }
 
 .mobile-nav-active {
@@ -318,19 +292,34 @@ section.section-show {
   visibility: visible;
 }
 
+.mobile-nav-active .mobile-nav-toggle i {
+  color: #fff;
+}
+
 /* ===============================
-   Header Top
+   MOBILE FIX FOR MISSING CONTENT
 ================================ */
 
+@media (max-width: 768px) {
+  section {
+    position: relative;
+    height: auto !important;
+    min-height: unset !important;   /* 🔥 KEY FIX */
+    overflow: visible !important;
+  }
+}
+
+/* Header Top */
 #header.header-top {
   height: 90px;
   position: fixed;
-  inset: 0;
+  left: 0;
+  top: 0;
+  right: 0;
   background: #09203a;
 }
 
-#header.header-top .social-links,
-#header.header-top h2 {
+#header.header-top .social-links, #header.header-top h2 {
   display: none;
 }
 
@@ -348,98 +337,113 @@ section.section-show {
   margin: 0;
 }
 
-/* ==================================================
-   MOBILE: ONE SECTION AT A TIME (OPTIONAL)
-================================================== */
-
 @media (max-width: 768px) {
-
-  section {
-    display: none !important;
-  }
-
-  section.section-show {
-    display: block !important;
-  }
-
-}
-
-
-/* ==========================================================
-   FINAL MOBILE LAYOUT — STABLE & CLEAN
-========================================================== */
-
-@media (max-width: 768px) {
-
-  /* Enable normal scrolling */
-  body {
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-  }
-
-  html {
-    overflow-x: hidden !important;
-  }
-
-  /* Disable one-page absolute layout */
-  section {
-    position: relative !important;
-    top: auto !important;
-    height: auto !important;
-    min-height: auto !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: block !important;
-    overflow: visible !important;
-    padding: 28px 16px !important;
-  }
-
-  section.section-show {
-    opacity: 1 !important;
-  }
-
-  /* Fixed header spacing */
   #header.header-top {
-    height: 70px !important;
+    height: 60px;
   }
-
-  section:first-of-type {
-    padding-top: 90px !important;
-  }
-
-  /* Header text clipping fix */
-  #header .container {
-    max-width: 100% !important;
-    padding: 0 16px !important;
-  }
-
-  #header h1 {
-    font-size: 26px !important;
-    line-height: 1.25 !important;
-    white-space: normal !important;
-    text-align: center !important;
-  }
-
   #header.header-top h1 {
-    font-size: 22px !important;
-  }
-
-  /* Mobile nav must not lock page */
-  .mobile-nav-active {
-    overflow: auto !important;
-  }
-
-  /* Portfolio visibility */
-  .portfolio-container {
-    flex-direction: column !important;
-  }
-
-  .portfolio .portfolio-item {
-    width: 100% !important;
-    margin-bottom: 30px !important;
+    font-size: 26px;
   }
 }
 
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+
+.section-title {
+  margin-top: 20px;
+}
+
+section {
+  position: absolute;
+  width: 100%;
+  top: 140px;          /* default after hero */
+  height: calc(100vh - 140px);
+  opacity: 0;
+  z-index: 2;
+  overflow-y: auto;
+}
+
+/* show active section */
+section.section-show {
+  opacity: 1;
+  z-index: 3;
+  padding-top: 40px;   /* ✅ ADD THIS LINE */
+}
+
+/* when header shrinks */
+#header.header-top ~ section {
+  top: 90px;
+  height: calc(100vh - 90px);
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  section {
+    top: 120px;
+    height: calc(100vh - 120px);
+  }
+
+  #header.header-top ~ section {
+    top: 60px;
+    height: calc(100vh - 60px);
+  }
+}
+
+/* ===============================
+   MOBILE FIX – INTERESTS SPACING
+================================ */
+
+@media (max-width: 768px) {
+
+  /* Reduce extra vertical gap between interest cards */
+  .interests .icon-box {
+    padding: 16px;              /* ↓ from 22px */
+    margin-bottom: 14px;        /* consistent spacing */
+  }
+
+  /* Reduce icon size slightly */
+  .interests .icon-box i {
+    font-size: 26px;
+  }
+
+  /* Reduce text size slightly for balance */
+  .interests .icon-box h3 {
+    font-size: 15px;
+  }
+
+}
+
+.section-title h2 {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  line-height: 1px;
+  margin: 0 0 20px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #dee2e6;
+  font-family: "Poppins", sans-serif;
+}
+
+.section-title h2::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  background: #dee2e6;
+  margin: 4px 10px;
+}
+
+.section-title p {
+  margin: 0;
+  margin: -15px 0 15px 0;
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
 
 /*--------------------------------------------------------------
 # About Me (Enhanced)
@@ -1122,271 +1126,4 @@ section.section-show {
 
 .contact .info-box .social-links a:hover i {
   color: #12d640 !important; /* Theme Green on Hover */
-}
-
-/* ==================================================
-   MOBILE FIX – PORTFOLIO SECTION
-================================================== */
-
-@media (max-width: 768px) {
-
-  /* Stack projects vertically */
-  .portfolio-container {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  /* Each project full width */
-  .portfolio .portfolio-item {
-    width: 100% !important;
-    margin-bottom: 24px !important;
-  }
-
-  /* Allow natural height on mobile */
-  .portfolio .portfolio-wrap {
-    height: auto !important;
-    min-height: 220px;
-  }
-
-  /* Image adapts to content */
-  .portfolio .portfolio-wrap img {
-    height: auto !important;
-    min-height: 220px;
-  }
-
-  /* Always show project title (no hover on mobile) */
-  .portfolio .portfolio-info {
-    opacity: 1 !important;
-    background: linear-gradient(
-      0deg,
-      rgba(0,0,0,0.7),
-      rgba(0,0,0,0.2)
-    );
-  }
-
-  /* Disable hover-only effects */
-  .portfolio .portfolio-wrap:hover img,
-  .portfolio .portfolio-wrap:hover::before {
-    transform: none !important;
-    opacity: 1 !important;
-  }
-}
-
-/* ==================================================
-   MOBILE FIX – KEEP ONE-PAGE LOGIC (NO OVERLAP)
-================================================== */
-@media (max-width: 768px) {
-
-  /* Body scrolling */
-  body {
-    overflow-x: hidden;
-  }
-
-  /* Sections: same logic as desktop */
-  section {
-    position: absolute;
-    width: 100%;
-    top: 120px;
-    height: calc(100vh - 120px);
-    opacity: 0;
-    z-index: 2;
-    overflow-y: auto;
-    display: block;
-  }
-
-  /* Show ONLY active section */
-  section.section-show {
-    opacity: 1;
-    z-index: 3;
-  }
-
-  /* Header height */
-  #header.header-top {
-    height: 70px;
-  }
-
-  #header.header-top ~ section {
-    top: 70px;
-    height: calc(100vh - 70px);
-  }
-
-  /* Fix header text clipping */
-  #header .container {
-    max-width: 100%;
-    padding: 0 14px;
-  }
-
-  #header.header-top h1 {
-    font-size: 22px;
-    white-space: nowrap;
-  }
-
-  /* Portfolio FIX */
-  .portfolio-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .portfolio .portfolio-item {
-    width: 100%;
-    margin-bottom: 24px;
-  }
-
-  .portfolio .portfolio-wrap {
-    height: 220px;
-  }
-
-}
-
-/* ==================================================
-   MOBILE FIX – RESTORE TEMPLATE LOGIC (FINAL)
-================================================== */
-@media (max-width: 768px) {
-
-  /* Keep JS-controlled one-page behavior */
-  section {
-    position: absolute;
-    width: 100%;
-    top: 120px;
-    height: calc(100vh - 120px);
-    opacity: 0;
-    z-index: 2;
-    overflow-y: auto;
-    display: block;
-  }
-
-  /* ONLY active section visible */
-  section.section-show {
-    opacity: 1;
-    z-index: 3;
-  }
-
-  /* Header height */
-  #header.header-top {
-    height: 70px;
-  }
-
-  #header.header-top ~ section {
-    top: 70px;
-    height: calc(100vh - 70px);
-  }
-
-  /* Fix header text clipping */
-  #header .container {
-    max-width: 100%;
-    padding: 0 14px;
-  }
-
-  #header.header-top h1 {
-    font-size: 22px;
-    white-space: nowrap;
-  }
-
-  /* Portfolio mobile layout */
-  .portfolio-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .portfolio .portfolio-item {
-    width: 100%;
-    margin-bottom: 24px;
-  }
-
-  .portfolio .portfolio-wrap {
-    height: 220px;
-  }
-
-}
-
-/* ==================================================
-   MOBILE FINAL OVERRIDE — SECTION WISE ONLY
-   (DO NOT ADD ANY MOBILE CSS AFTER THIS)
-================================================== */
-@media (max-width: 768px) {
-
-  /* LOCK PAGE TO ONE SECTION */
-  body {
-    overflow-x: hidden !important;
-  }
-
-  /* Restore template one-page logic */
-  section {
-    position: absolute !important;
-    width: 100% !important;
-    top: 120px !important;
-    height: calc(100vh - 120px) !important;
-    opacity: 0 !important;
-    z-index: 2 !important;
-    overflow-y: auto !important;
-    display: block !important;
-  }
-
-  /* SHOW ONLY ACTIVE SECTION */
-  section.section-show {
-    opacity: 1 !important;
-    z-index: 3 !important;
-  }
-
-  /* Header height */
-  #header.header-top {
-    height: 70px !important;
-  }
-
-  #header.header-top ~ section {
-    top: 70px !important;
-    height: calc(100vh - 70px) !important;
-  }
-
-  /* Fix name clipping */
-  #header .container {
-    max-width: 100% !important;
-    padding: 0 14px !important;
-  }
-
-  #header.header-top h1 {
-    font-size: 22px !important;
-    white-space: nowrap !important;
-  }
-
-  /* Portfolio: stack properly, no overlap */
-  .portfolio-container {
-    display: flex !important;
-    flex-wrap: wrap !important;
-  }
-
-  .portfolio .portfolio-item {
-    width: 100% !important;
-    margin-bottom: 24px !important;
-  }
-
-  .portfolio .portfolio-wrap {
-    height: 220px !important;
-  }
-}
-
-/* ==================================================
-   MOBILE FINAL FIX — CONTENT VISIBILITY
-================================================== */
-@media (max-width: 768px) {
-
-  /* Ensure section content is visible */
-  section.section-show * {
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  /* Prevent inner containers from being hidden */
-  section * {
-    visibility: visible !important;
-  }
-
-  /* Fix Bootstrap rows sometimes collapsing */
-  section .container,
-  section .row {
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: block !important;
-  }
-
 }
