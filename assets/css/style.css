@@ -730,6 +730,61 @@ section.section-show {
 }
 
 
+
+/* ===============================
+   PROJECT BUTTONS (STREAMLIT + GITHUB)
+================================ */
+
+.project-card .btn,
+.portfolio .btn {
+  display: inline-block;
+  margin: 8px 6px 0 6px;
+  padding: 10px 22px;
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+
+  border-radius: 30px;
+  text-decoration: none;
+
+  transition: all 0.35s ease;
+}
+
+/* Live Demo – Green */
+.project-card .btn-primary,
+.portfolio .btn-primary {
+  background: linear-gradient(135deg, #12d640, #6cff8d);
+  color: #0b2b4d;
+  box-shadow: 0 8px 20px rgba(18, 214, 64, 0.35);
+}
+
+/* GitHub – Dark Glass */
+.project-card .btn-secondary,
+.portfolio .btn-secondary {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Hover Effects */
+.project-card .btn:hover,
+.portfolio .btn:hover {
+  transform: translateY(-4px);
+}
+
+.project-card .btn-primary:hover,
+.portfolio .btn-primary:hover {
+  box-shadow: 0 16px 35px rgba(18, 214, 64, 0.55);
+  color: #000;
+}
+
+.project-card .btn-secondary:hover,
+.portfolio .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #12d640;
+}
+
 /*--------------------------------------------------------------
 # Skills
 --------------------------------------------------------------*/
